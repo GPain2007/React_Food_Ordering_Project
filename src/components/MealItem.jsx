@@ -18,6 +18,7 @@ export default function MealItem({ name, price, image, description, quanity }) {
       price,
       image,
       description,
+      quanity,
     });
   }
   return (
