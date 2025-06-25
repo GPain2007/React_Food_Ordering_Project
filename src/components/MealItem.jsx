@@ -3,22 +3,31 @@ import { formatPrice } from "../util/format.js";
 import Buttons from "./UI/Buttons.jsx";
 import CartContext from "../store/CartContext.jsx";
 
-export default function MealItem({ name, price, image, description, quanity }) {
+export default function MealItem({
+  id,
+  name,
+  price,
+  image,
+  description,
+  quantity,
+}) {
   const carTxt = useContext(CartContext);
   function handleAddToCart() {
     carTxt.addItem({
+      id,
       name,
       price,
       image,
       description,
-      quanity: 1,
+      quantity: 1,
     });
     console.log("Item added to cart:", {
       name,
       price,
       image,
       description,
-      quanity,
+      quantity,
+      id,
     });
   }
   return (

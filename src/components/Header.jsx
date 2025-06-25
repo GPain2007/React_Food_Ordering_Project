@@ -9,7 +9,7 @@ export default function Header() {
   const userContext = useContext(UserProgressContext);
 
   const totalItems = cartContext.items.reduce((total, item) => {
-    return total + item.quanity;
+    return total + item.quantity;
   }, 0);
 
   function handleShowCart() {
