@@ -17,8 +17,16 @@ export default function Cart() {
   function handleCloseCart() {
     userContext.hidecart();
   }
+
+  function handleGoToCheckout() {
+    userContext.showCheckout();
+  }
   return (
-    <Model className="cart" open={userContext.progress === "showcart"}>
+    <Model
+      className="cart"
+      open={userContext.progress === "showcart"}
+      onClose={userContext.progress === "showcart" ? handleCloseCart : null}
+    >
       <h2>Your Cart</h2>
       <ul>
         {cartContext.items.map((item) => (
@@ -37,9 +45,9 @@ export default function Cart() {
         <Buttons textOnly onClick={handleCloseCart}>
           Close
         </Buttons>
-        {cartContext.items.length > 0 ? (
-          <Buttons onClick={handleCloseCart}>Go to Check Out</Buttons>
-        ) : null}
+        {cartContext.items.length > 0 && (
+          <Buttons onClick={handleGoToCheckout}>Go to Check Out</Buttons>
+        )}
       </p>
     </Model>
   );
